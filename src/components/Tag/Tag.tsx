@@ -5,7 +5,6 @@ import cn from "classnames";
 export default function Tag({
   children,
   size = "m",
-  className,
   color,
   href,
   ...props

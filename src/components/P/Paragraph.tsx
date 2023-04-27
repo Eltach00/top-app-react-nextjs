@@ -5,7 +5,6 @@ import cn from "classnames";
 export default function P({
   children,
   size = "m",
-  className,
   ...props
 }: ParagraphProps): JSX.Element {
   return (
