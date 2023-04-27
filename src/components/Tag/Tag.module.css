@@ -1,0 +1,28 @@
+.tag {
+  display: inline-block;
+  border-radius: 20px;
+  padding: 5px 10px;
+  margin-right: 5px;
+}
+
+.s {
+  font-size: 12px;
+}
+
+.m {
+  font-size: 14px;
+}
+
+.ghost {
+  background-color: #fff;
+}
+
+.primary {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+.red {
+  background-color: var(--red);
+  color: #fff;
+}
