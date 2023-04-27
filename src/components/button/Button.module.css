@@ -1,0 +1,41 @@
+.button {
+  border-radius: 5px;
+  padding: 10px;
+  font-weight: 400;
+  cursor: pointer;
+  font-family: var(--font-family);
+  transition: all 0.2s;
+}
+
+.primary {
+  background: var(--primary);
+  color: var(--white);
+  border: 1px solid #fff;
+}
+
+.primary:hover {
+  background: var(--primary-hover);
+}
+
+.ghost {
+  background: white;
+  border: 1px solid #ebebeb;
+}
+
+.ghost:hover {
+  background: #dbdbdb;
+}
+
+.arrow {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.arrow.down {
+  transform: rotate(90deg);
+  transition: all 0.2s;
+}
+
+.primary svg {
+  fill: var(--white);
+}
