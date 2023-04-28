@@ -4,44 +4,25 @@ import cn from "classnames";
 import { useEffect, useState, KeyboardEvent } from "react";
 import Star from "./star.svg";
 
-export default function Rating({
+export default function RatingSecond({
   rating,
   isEditable = false,
   setRating,
   ...props
 }: RatingProps): JSX.Element {
-  const [ratingStars, setRatingStars] = useState<JSX.Element[]>(
-    new Array(5).fill(<></>)
-  );
+  const stars = new Array(5).fill(<></>);
 
-  const updateRatingStars = (currentRating: number) => {
-    const stars = ratingStars.map((item, i) => {
-      return (
-        <span
-          className={cn(styles.star, {
-            [styles.filled]: i < rating,
-            [styles.editable]: isEditable,
-          })}
-          onMouseEnter={changeDisplayedStars(i + 1)}
-          onMouseLeave={changeDisplayedStars(rating)}
-          onClick={onClick(i + 1)}>
-          <Star
-            onKeyDown={(e: KeyboardEvent<SVGAElement>) =>
-              isEditable && handleSpace(i + 1, e)
-            }
-          />
-        </span>
-      );
-    });
-    setRatingStars(stars);
-  };
+  const [currentRating, setCurrentRating] = useState<number>(0);
+
+  useEffect(() => {
+    setCurrentRating(rating);
+  }, [rating]);
 
   const handleSpace = (rating: number, e: KeyboardEvent<SVGAElement>) => {
     if (e.code !== "Space") {
       return;
     }
     if (e.code === "Space") {
-      updateRatingStars(rating);
       onClick(rating);
     }
   };
@@ -50,8 +31,9 @@ export default function Rating({
     if (!isEditable) {
       return;
     }
-    updateRatingStars(rating);
+    setCurrentRating(rating);
   };
+
   const onClick = (rating: number) => () => {
     if (!isEditable) {
       return;
@@ -59,15 +41,27 @@ export default function Rating({
     setRating!(rating);
   };
 
-  useEffect(() => {
-    updateRatingStars(rating);
-  }, [rating]);
-
   return (
     <div {...props}>
-      {ratingStars.map((item, i) => (
-        <span key={i}> {item}</span>
-      ))}
+      {stars.map((item, i) => {
+        return (
+          <span
+            key={i}
+            className={cn(styles.star, {
+              [styles.filled]: i < currentRating,
+              [styles.editable]: isEditable,
+            })}
+            onMouseEnter={changeDisplayedStars(i + 1)}
+            onMouseLeave={changeDisplayedStars(rating)}
+            onClick={onClick(i + 1)}>
+            <Star
+              onKeyDown={(e: KeyboardEvent<SVGAElement>) =>
+                isEditable && handleSpace(i + 1, e)
+              }
+            />
+          </span>
+        );
+      })}
     </div>
   );
 }
