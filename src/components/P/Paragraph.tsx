@@ -2,7 +2,7 @@ import { ParagraphProps } from "./Paragraph.props";
 import styles from "./Paragraph.module.css";
 import cn from "classnames";
 
-export default function P({
+export function P({
   children,
   size = "m",
   ...props

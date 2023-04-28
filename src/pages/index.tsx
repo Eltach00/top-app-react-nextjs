@@ -1,11 +1,9 @@
-import Htag from "@/components/Htag/Htag";
-import Tag from "@/components/Tag/Tag";
-import Button from "@/components/button/Button";
-import P from "@/components/P/Paragraph";
+import { Button, Htag, P, Rating } from "@/components";
+import { Tag } from "@/components/Tag/Tag";
+import { HOCLayout } from "@/layout/Layout";
 import { useState } from "react";
-import Rating from "@/components/Rating/Rating";
 
-export default function Home() {
+function Home() {
   const [counter, setCounter] = useState<number>(0);
   const [rating, setRating] = useState<number>(0);
 
@@ -31,3 +29,5 @@ export default function Home() {
     </>
   );
 }
+
+export default HOCLayout(Home);

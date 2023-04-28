@@ -4,7 +4,7 @@ import cn from "classnames";
 import { useEffect, useState, KeyboardEvent } from "react";
 import Star from "./star.svg";
 
-export default function RatingSecond({
+export function Rating({
   rating,
   isEditable = false,
   setRating,

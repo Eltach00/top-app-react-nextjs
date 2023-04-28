@@ -3,7 +3,7 @@ import styles from "./Button.module.css";
 import cn from "classnames";
 import ArrowIcon from "./arrow.svg";
 
-export default function Button({
+export function Button({
   appearance,
   children,
   arrow = "none",
