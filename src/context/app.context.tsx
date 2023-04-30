@@ -1,0 +1,31 @@
+import { MenuItem } from "@/interfaces/menu.inteface";
+import { TopLevelCategory } from "@/interfaces/page.interface";
+import { PropsWithChildren, createContext, useState } from "react";
+
+export interface IAppContext {
+  menu: MenuItem[];
+  firstCategory: TopLevelCategory;
+  setMenu?: (menu: MenuItem[]) => void;
+}
+
+export const AppContext = createContext<IAppContext>({
+  menu: [],
+  firstCategory: TopLevelCategory.Courses,
+});
+
+export const AppContextProvider = ({
+  menu,
+  children,
+  firstCategory,
+}: PropsWithChildren<IAppContext>): JSX.Element => {
+  const [menuState, setMenuState] = useState<MenuItem[]>(menu);
+  const setMenu = (newMenu: MenuItem[]) => {
+    setMenuState(newMenu);
+  };
+
+  return (
+    <AppContext.Provider value={{ menu: menuState, firstCategory, setMenu }}>
+      {children}
+    </AppContext.Provider>
+  );
+};
