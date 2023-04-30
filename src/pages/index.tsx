@@ -1,9 +1,12 @@
 import { Button, Htag, P, Rating } from "@/components";
 import { Tag } from "@/components/Tag/Tag";
-import { HOCLayout } from "@/layout/Layout";
 import { useState } from "react";
+import { GetStaticProps } from "next";
+import axios from "axios";
+import { MenuItem } from "@/interfaces/menu.inteface";
+import { HOCLayout } from "@/HOC/HOC";
 
-function Home() {
+function Home({ menu }: HomeProps) {
   const [counter, setCounter] = useState<number>(0);
   const [rating, setRating] = useState<number>(0);
 
@@ -31,3 +34,23 @@ function Home() {
 }
 
 export default HOCLayout(Home);
+
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+  const firstCategory = 0;
+  const { data: menu } = await axios.post<MenuItem[]>(
+    process.env.NEXT_PUBLIC_DOMAIN + "/api/top-page/find",
+    { firstCategory }
+  );
+
+  return {
+    props: {
+      menu,
+      firstCategory,
+    },
+  };
+};
+
+interface HomeProps extends Record<string, unknown> {
+  menu: MenuItem[];
+  firstCategory: number;
+}
