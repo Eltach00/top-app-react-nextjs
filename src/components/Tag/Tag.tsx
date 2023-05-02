@@ -18,7 +18,7 @@ export function Tag({
         [styles.primary]: color === "primary",
         [styles.red]: color === "red",
         [styles.green]: color === "green",
-        [styles.grey]: color === "grey",
+        [styles.gray]: color === "gray",
         [styles.ghost]: color === "ghost",
       })}>
       {href ? (

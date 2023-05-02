@@ -1,0 +1,12 @@
+/* stylelint-disable color-function-notation */
+/* stylelint-disable alpha-value-notation */
+.card {
+  background: var(--white);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  height: 140px;
+}
+
+.blue {
+  background: #f9f8ff;
+}

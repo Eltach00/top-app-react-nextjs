@@ -7,9 +7,10 @@ import { ProductModel } from "@/interfaces/product.interface";
 import { GetStaticPaths } from "next";
 import { HOCLayout } from "@/HOC/HOC";
 import { firstLevel } from "@/helpers/helpers";
+import { TopPageComponent } from "@/page-components/TopPageComponent/TopPage";
 
-function TopPages({ menu, page, products }: TopPageProps): JSX.Element {
-  return <>{products && products.length}</>;
+function TopPages({ menu, page, products, firstCategory }: TopPageProps): JSX.Element {
+  return <><TopPageComponent menu={menu} page={page} products={products} firstCategory={firstCategory}/></>;
 }
 
 export default HOCLayout(TopPages);

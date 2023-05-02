@@ -29,3 +29,7 @@ export const firstLevel = [
     icon: <Services />,
   },
 ];
+
+export const priceRu = (price: number) => {
+  return price.toLocaleString("ru-RU") + " ₽";
+};

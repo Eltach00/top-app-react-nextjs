@@ -2,10 +2,12 @@
   --black: #3b434e;
   --white: #fff;
   --primary: #765efc;
+  --gray: #b3c0d9;
   --gray-dark: #787d85;
   --gray-light: #ebebeb;
   --primary-hover: #6352c2;
-  --red: #fc836d;
+  --red: #de0000;
+  --orange: #fc836d;
   --green: #1dc37e;
   --green-light: #c8f8e4;
   --font-family: "Noto Sans", sans-serif;
